@@ -1,0 +1,20 @@
+.BrandContainer{
+    margin-right: 650px;
+    padding: 5px;
+}
+
+.NavBarBrand{
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.NavBarBrand:hover{
+    cursor: pointer;
+    color: rgb(42, 193, 163);
+    text-decoration: none;
+}
+
+.SearchButton{
+    margin-left: 5px;
+}

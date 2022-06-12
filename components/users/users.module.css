@@ -1,0 +1,32 @@
+.listGroup{
+    display: flex !important;
+    flex-direction: row
+}
+
+.cardContainer{
+    width: 300px;
+    padding: 10px;
+    list-style: none;
+    height: 200px;
+}
+
+.titleContainer{
+    height: 100px;
+}
+
+.user {
+    background-color: yellow;
+    font-size: 30px
+}
+
+.imgContainer{
+    display: flex;
+    text-align: center;
+    justify-content: center;    
+}
+
+.userImg{
+    width: 100px;
+    border: 1px solid #AAA;
+    border-radius: 5% !important
+}
