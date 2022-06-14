@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootswatch/dist/flatly/bootstrap.min.css';
 
 
-
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -32,6 +31,6 @@ function NavBar() {
       </div>
     </nav>
   )
-}
+};
 
 export default NavBar;

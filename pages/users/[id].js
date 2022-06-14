@@ -6,17 +6,14 @@ import styles from './[id].module.css';
 import Link from "next/link";
 
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootswatch/dist/flatly/bootstrap.min.css';
 
 function UsefProfile({user}) {
 
   const router = useRouter();
-  
   const {id} = router.query
-  console.log(user)
-
+  
   return (
     <Container>
       <div className={styles.CardDetailContainer}>
@@ -41,10 +38,9 @@ function UsefProfile({user}) {
 };
 
 UsefProfile.getInitialProps = async (ctx) => {
-  const res = await fetch(`https://reqres.in/api/users/${ctx.query.id}`)
-  const json = await res.json()
-  console.log(json.data)
+  const res = await fetch(`https://reqres.in/api/users/${ctx.query.id}`);
+  const json = await res.json();
   return { user : json.data }
-}
+};
 
 export default UsefProfile;
