@@ -18,7 +18,9 @@ function NavBar({users}) {
     const resultadoBusqueda = users.filter (us => {
       if (us.first_name.toLowerCase()===usuario.toString().toLowerCase() ||
       us.last_name.toLowerCase()===usuario.toString().toLowerCase()){
-        Router.push('/users/[id]', `users/${us.id}`)
+         Router.push(`/users/${us.id}`);
+      } else {
+         Router.push('/notFound');
       };
     });
   };
