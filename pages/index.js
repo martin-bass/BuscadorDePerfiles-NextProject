@@ -13,7 +13,7 @@ function Index({users}) {
 
 Index.getInitialProps = async (ctx) => {
   const res = await fetch('https://reqres.in/api/users')
-  const json = await res.json()
+  const json = await res.json();
   return { users : json }
 };
 

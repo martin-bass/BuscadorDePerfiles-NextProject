@@ -11,8 +11,8 @@ function Users({users}) {
         <ul className={styles.listGroup}>
             {
                 users.map(user => (
-                <li className={styles.cardContainer}>
-                    <div className="card mb-3" key={user.id}>
+                <li className={styles.cardContainer} key={user.id}>
+                    <div className="card mb-3">
                         <div className={styles.titleContainer}>
                             <h3 className="card-header h-100">{user.first_name} {user.last_name}</h3>
                         </div>

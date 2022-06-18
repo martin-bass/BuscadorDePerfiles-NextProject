@@ -1,12 +1,28 @@
 import React from 'react';
+import { useState } from 'react';
 import Link from "next/link";
+import Router from 'next/router';
 import styles from './NavBar.module.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootswatch/dist/flatly/bootstrap.min.css';
 
 
-function NavBar() {
+function NavBar({users}) {
+  const [busqueda, setBusqueda] = useState('')
+  const handleChange = e => {
+    setBusqueda (e.target.value);
+  }
+
+  const buscarPerfil = (usuario) => {
+    const resultadoBusqueda = users.filter (us => {
+      if (us.first_name.toLowerCase()===usuario.toString().toLowerCase() ||
+      us.last_name.toLowerCase()===usuario.toString().toLowerCase()){
+        Router.push('/users/[id]', `users/${us.id}`)
+      };
+    });
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid" >
@@ -21,16 +37,30 @@ function NavBar() {
             <li className="nav-item">
               <Link href="/"><a className="nav-link">Index</a></Link>
             </li>
-              <Link href='/about'><a class="nav-link" aria-current="page" href="#">About</a></Link>
+              <Link href='/about'><a className="nav-link" aria-current="page" href="#">About</a></Link>
           </ul>
           <form className="d-flex">
-            <input className="form-control me-sm-2" type="text" placeholder="Search"></input>
-            <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <input 
+              className="form-control me-sm-2" 
+              type="text" 
+              placeholder="Search" 
+              value={busqueda}
+              onChange={handleChange}
+            ></input>
+            <button 
+              className="btn btn-secondary my-2 my-sm-0" 
+              type="submit" 
+              onClick={(e)=>{
+                e.preventDefault(),
+                buscarPerfil(busqueda)
+              }}
+            >Search</button>
           </form>
         </div>
       </div>
     </nav>
   )
 };
+
 
 export default NavBar;
