@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { useRouter } from "next/router";
 import Link from "next/link";
-import Router from 'next/router';
 import styles from './NavBar.module.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,20 +9,25 @@ import 'bootswatch/dist/flatly/bootstrap.min.css';
 
 
 function NavBar({users}) {
-  const [busqueda, setBusqueda] = useState('')
+  const router = useRouter();
+  
+  const [busqueda, setBusqueda] = useState('');
+
   const handleChange = e => {
     setBusqueda (e.target.value);
-  }
+  };
 
   const buscarPerfil = (usuario) => {
     const resultadoBusqueda = users.filter (us => {
       if (us.first_name.toLowerCase()===usuario.toString().toLowerCase() ||
       us.last_name.toLowerCase()===usuario.toString().toLowerCase()){
-         Router.push(`/users/${us.id}`);
+        router.push('/users/[id]',`/users/${us.id}`);
       } else {
-         Router.push('/notFound');
-      };
+        router.push('/notFound');
+      };   
     });
+
+    
   };
 
   return (
