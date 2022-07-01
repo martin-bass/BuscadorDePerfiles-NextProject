@@ -2,8 +2,8 @@ import React from 'react';
 import Container from '../container/container';
 import Link from "next/link";
 
-
 function About() {
+  
   return (
     <Container>
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>

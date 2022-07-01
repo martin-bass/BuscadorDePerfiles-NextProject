@@ -7,10 +7,9 @@ import styles from './NavBar.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootswatch/dist/flatly/bootstrap.min.css';
 
-
 function NavBar({users}) {
-  const router = useRouter();
   
+  const router = useRouter();
   const [busqueda, setBusqueda] = useState('');
 
   const handleChange = e => {
@@ -19,6 +18,7 @@ function NavBar({users}) {
 
   const buscarPerfil = (usuario) => {
     const resultadoBusqueda = users.filter (us => {
+      
       if (us.first_name.toLowerCase()===usuario.toString().toLowerCase() ||
       us.last_name.toLowerCase()===usuario.toString().toLowerCase()){
         router.push('/users/[id]',`/users/${us.id}`);
@@ -26,8 +26,6 @@ function NavBar({users}) {
         router.push('/notFound');
       };   
     });
-
-    
   };
 
   return (
@@ -68,6 +66,5 @@ function NavBar({users}) {
     </nav>
   )
 };
-
 
 export default NavBar;

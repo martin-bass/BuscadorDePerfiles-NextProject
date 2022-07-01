@@ -7,18 +7,17 @@ import Head from "next/head";
 import axios from 'axios';
 
 function Container(props) {
-  const [users, setUsers] = useState();
-
-  async function getUser() {
-    try {
-      const response = await axios.get('https://reqres.in/api/users');
-      setUsers(response.data.data); 
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    async function getUser() {
+      try {
+        const response = await axios.get('https://reqres.in/api/users');
+        setUsers(response.data.data); 
+      } catch (error) {
+        console.error(error);
+      }
+    };
     getUser();
   }, []);
 

@@ -3,7 +3,7 @@ import Container from '../container/container';
 import Link from "next/link";
 
 
-function About() {
+function NotFound() {
   return (
     <Container>
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -22,4 +22,4 @@ function About() {
   )
 };
 
-export default About;
+export default NotFound;
