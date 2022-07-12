@@ -17,15 +17,13 @@ function NavBar({users}) {
   };
 
   const buscarPerfil = (usuario) => {
-    const resultadoBusqueda = users.filter (us => {
-      
-      if (us.first_name.toLowerCase()===usuario.toString().toLowerCase() ||
-      us.last_name.toLowerCase()===usuario.toString().toLowerCase()){
-        router.push('/users/[id]',`/users/${us.id}`);
-      } else {
-        router.push('/notFound');
-      };   
-    });
+    const resultadoBusqueda = users.filter(us => us.first_name.toLowerCase() === usuario.toString().toLowerCase() || us.last_name.toLowerCase() === usuario.toString().toLowerCase());
+
+    if(resultadoBusqueda.length === 0) {
+      return router.push('/notFound');
+    } else {
+      router.push('/users/[id]',`/users/${resultadoBusqueda[0].id}`);
+    }
   };
 
   return (
