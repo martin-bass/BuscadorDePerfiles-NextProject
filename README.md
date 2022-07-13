@@ -1,5 +1,6 @@
 # BuscadorDePerfiles-NextProject
-Buscador de Perfiles - Proyecto en desarrollo
+Buscador de Perfiles 
+
 Este ejemplo desarrollado en Next.js realiza un llamado a una API externa para presentar unos cards con diferentes usuarios:
 ![package](https://user-images.githubusercontent.com/84106998/178853192-f01a183e-1226-40de-82d8-5f758dcfee0f.jpeg)
 
